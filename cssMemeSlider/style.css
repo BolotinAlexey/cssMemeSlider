@@ -96,6 +96,10 @@ label:hover > .inner {
   background-color: var(--btnColor);
   transition: all 0.25s linear;
 }
+
+.control:checked + label {
+  animation: click 0.3s linear;
+}
 .control:checked + label > .inner {
   background-color: transparent;
 }
@@ -115,4 +119,17 @@ label:hover > .inner {
 }
 .inputs-set:has(.control:nth-of-type(5):checked) ~ .slider > .slider__list {
   transform: translate(-400vw);
+}
+
+@keyframes click {
+  0% {
+    border-color: transparent;
+  }
+  50% {
+    border-color: var(--accentColor);
+    box-shadow: 0 0 0.8rem 0.5rem var(--accentColor);
+  }
+  100% {
+    border-color: transparent;
+  }
 }
