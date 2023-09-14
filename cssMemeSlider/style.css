@@ -4,30 +4,43 @@
   --accentColor: #eee;
 }
 
+/* reset */
 body,
 li,
 ul,
-input {
+input,
+p,
+label {
   margin: 0;
   padding: 0;
 }
 ul {
   list-style: none;
 }
+
+/*  */
 body {
   background-color: var(--bgColor);
 }
 main {
-  display: flex;
-  gap: 2vh;
-  flex-direction: column-reverse;
-  align-items: start;
+  display: grid;
+  grid-template-areas:
+    "h1"
+    "img"
+    "desc"
+    "controls";
+  gap: 3vh;
+
+  /* flex-direction: column-reverse;
+  align-items: start; */
 }
 
 h1 {
+  grid-area: h1;
   margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
   text-transform: uppercase;
-  order: 1;
   color: var(--accentColor);
 }
 .slider {
@@ -43,8 +56,12 @@ h1 {
 
 .slider__item {
   width: 100vw;
-
-  /* align-items: center; */
+}
+.description {
+  grid-area: desc;
+}
+.img {
+  grid-area: img;
 }
 
 .img .slider__item {
@@ -52,8 +69,9 @@ h1 {
 }
 .slider__img,
 .slider__description {
-  width: 75vw;
-  margin: 0 auto;
+  width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 .slider__img {
   border-radius: 1rem;
@@ -66,10 +84,12 @@ h1 {
 }
 
 /* controls */
-.inputs-set,
-h1 {
-  align-self: center;
+.inputs-set {
+  margin-left: auto;
+  margin-right: auto;
+  grid-area: controls;
 }
+/* .inputs-set,*/
 
 .control {
   width: 0;
@@ -81,7 +101,6 @@ label {
   justify-content: center;
   align-items: center;
   align-self: start;
-  margin: 0;
   border: 0.7rem solid transparent;
   border-radius: 50%;
 }
@@ -94,11 +113,9 @@ label:hover > .inner {
 }
 
 .inner {
-  display: inline-block;
   border-radius: 50%;
   border: 0.15rem solid var(--btnColor);
   padding: 0.5rem;
-  /* outline: 0.1rem solid var(--btnColor); */
   background-color: var(--btnColor);
   transition: all 0.25s linear;
 }
@@ -137,5 +154,21 @@ label:hover > .inner {
   }
   100% {
     border-color: transparent;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  main {
+    grid-template-areas:
+      "h1 h1"
+      "img img"
+      "desc controls";
+  }
+  .inputs-set {
+    margin-right: 5vw;
+  }
+  .slider__description {
+    width: 55vw;
+    margin-left: 5vw;
   }
 }
