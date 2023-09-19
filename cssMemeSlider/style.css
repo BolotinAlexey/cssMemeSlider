@@ -27,8 +27,8 @@ main {
   grid-template-areas:
     "h1"
     "img"
-    "desc"
-    "controls";
+    "controls"
+    "desc";
   gap: 3vh;
 
   /* flex-direction: column-reverse;
@@ -69,7 +69,7 @@ h1 {
 }
 .slider__img,
 .slider__description {
-  width: 90vw;
+  width: 80vw;
   margin-left: auto;
   margin-right: auto;
 }
@@ -165,10 +165,10 @@ label:hover > .inner {
       "desc controls";
   }
   .inputs-set {
-    margin-right: 5vw;
+    margin-right: 10vw;
   }
   .slider__description {
-    width: 55vw;
-    margin-left: 5vw;
+    width: 50vw;
+    margin-left: 10vw;
   }
 }
